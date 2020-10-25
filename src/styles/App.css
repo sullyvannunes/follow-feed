@@ -9,9 +9,20 @@ body {
   width: 100vw;
   height: 100vh;
 
+  position: relative;
+
   display: flex;
+
+  color: #303242;
+  font-family: 'Nunito', sans-serif;
 }
 
 .App .Sidebar {
   width: 70px;
+}
+
+.App .Content {
+  max-width: calc(100% - 70px);
+  position: absolute;
+  left: 70px;
 }
