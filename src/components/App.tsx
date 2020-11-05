@@ -2,7 +2,6 @@ import React from 'react';
 import {
   BrowserRouter as Router,
   Switch,
-  Link,
   Route
 } from 'react-router-dom'
 
@@ -11,7 +10,6 @@ import Sidebar from "./Sidebar";
 import Feeds from "./Feeds";
 
 import '../styles/App.css';
-import { render } from '@testing-library/react';
 
 function App() {
   return(
