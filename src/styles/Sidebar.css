@@ -20,6 +20,17 @@
     font-size: 45px;
 }
 
+.Sidebar .UserIcon {
+    position: absolute;
+
+    bottom: 70px;
+    left: 13px;
+
+    color: #fff;
+    font-size: 45px;
+}
+
+
 .Sidebar .GearIcon {
     position: absolute;
 

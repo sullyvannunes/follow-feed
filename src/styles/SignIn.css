@@ -1,0 +1,36 @@
+.SignIn {
+    min-width: 100%;
+    max-height: 100%;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.SignIn .Form {
+    width: 700px;
+    height: 400px;
+}
+
+.Form label {
+    font-size: 18px;
+}
+
+.Form input {
+    height: 50px;
+
+    border-radius: 5px;
+}
+
+.Form .Submit {
+    background-color: #f6830f;
+    color: #fff;
+
+    font-weight: 800;
+
+    border: none;
+
+    width: 250px;
+
+    cursor: pointer;
+}

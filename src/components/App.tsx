@@ -7,6 +7,7 @@ import {
 
 import Content from "./Content";
 import Sidebar from "./Sidebar";
+import SignIn from "./SignIn";
 import Feeds from "./Feeds";
 
 import '../styles/App.css';
@@ -15,23 +16,25 @@ function App() {
   return(
     <Router>
       <div className="App">
-        <Sidebar />
-        <Content>
+        <Switch>
+          <Route exact={true} path='/'>
+            <Sidebar />
+            <Content>
+              Welcome
+            </Content>
+          </Route>
 
-          <Switch>
-            <Route exact={true} path='/'>
-              <div>
-                Welcome
-              </div>
-            </Route>
-
-            <Route  path='/Feeds'>
+          <Route  path='/Feeds'>
+            <Sidebar />
+            <Content>
               <Feeds/>
-            </Route>
+            </Content>
+          </Route>
 
-          </Switch>
-
-        </Content>
+          <Route path="/sign_in">
+            <SignIn />
+          </Route>
+        </Switch>
       </div>
     </Router>
   )

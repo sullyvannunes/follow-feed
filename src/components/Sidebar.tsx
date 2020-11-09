@@ -1,8 +1,11 @@
 import React from "react";
 
 import { AiOutlinePlus } from "react-icons/ai";
-import { BsHouseDoor, BsGear } from "react-icons/bs";
+
 import { Link } from "react-router-dom";
+
+import { BsHouseDoor, BsGear } from "react-icons/bs";
+import { BiUserCircle } from "react-icons/bi";
 
 import '../styles/Sidebar.css';
 
@@ -15,6 +18,10 @@ function Sidebar(): any  {
 
       <Link to="/feeds">
         <AiOutlinePlus className="PlusIcon"></AiOutlinePlus>
+      </Link>
+
+      <Link to="/sign_in">
+        <BiUserCircle className="UserIcon"></BiUserCircle>
       </Link>
 
       <Link to="/">
