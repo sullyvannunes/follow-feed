@@ -1,75 +1,69 @@
-import React, { ChangeEvent, SyntheticEvent } from "react";
+import React, {
+	SyntheticEvent,
+	useState,
+	useContext
+} from "react";
+
+import { useLocation, useHistory } from "react-router-dom";
 
 import { createSession } from "../utils/Session";
 
+import { UserContext } from '../models/User';
+
 import "../styles/SignIn.css";
 
-interface State {
-  email: string,
-  password: string
-}
-
 interface InputProps {
-  type: string,
-  name: string,
-  value: string,
-  onChange(event: React.ChangeEvent<HTMLInputElement>): void
+	type: string,
+	name: string,
+	value: string,
+	onChange(event: React.ChangeEvent<HTMLInputElement>): void
 }
 
-class SignIn extends React.Component {
-  state: State
+function SignIn(props: any) {
+	const [email, setEmail] = useState('');
+	const [password, setPassword] = useState('');
 
-	constructor(props: any) {
-		super(props);
+	const { setUser } = useContext(UserContext);
 
-		this.handleChange = this.handleChange.bind(this);
-		this.handleSubmit = this.handleSubmit.bind(this);
+	const location = useLocation();
+	const history = useHistory();
 
-		this.state = {
-			email: '',
-			password: ''
-		}
-	}
-
-	handleChange(event: React.ChangeEvent<HTMLInputElement>) {
-		const value = event.currentTarget.value;
-		const name  = event.target.name;
-
-		this.setState({
-			[name]: value
-		});
-	}
-
-	handleSubmit(event: SyntheticEvent) {
-    event.preventDefault();
+	function handleSubmit(event: SyntheticEvent) {
+		event.preventDefault();
 
     createSession()
-      .then((user) => console.log(user));
+			.then((user) => {
+				setUser(user);
+				const state: any = location.state;
+				if(state) {
+					history.push(state.referrer.pathname);
+				} else {
+					history.push('/');
+				}
+			});
 	}
 
-	render() {
-		return(
-			<div className="SignIn">
-				<form className="Form" onSubmit={this.handleSubmit}>
-					<label>Email: </label>
-					<Input
-						type="email"
-						name="email"
-						value={this.state.email}
-						onChange={this.handleChange} />
+	return(
+		<div className="SignIn">
+			<form className="Form" onSubmit={handleSubmit}>
+				<label>Email: </label>
+				<Input
+					type="email"
+					name="email"
+					value={email}
+					onChange={(e: any) => { setEmail(e.target.value) }} />
 
-					<label>Password: </label>
-					<Input
-						type="password"
-						name="password"
-						value={this.state.password}
-						onChange={this.handleChange} />
+				<label>Password: </label>
+				<Input
+					type="password"
+					name="password"
+					value={password}
+					onChange={(e: any) => { setPassword(e.target.value) }} />
 
-					<input type="submit" className="Submit" value="Log In"/>
-				</form>
-			</div>
-		);
-	}
+				<input type="submit" className="Submit" value="Log In"/>
+			</form>
+		</div>
+	);
 }
 
 function Input(props: InputProps) {

@@ -5,7 +5,7 @@ interface Feed {
 export const Feed = {
   getFeeds: (): Promise<any> => {
     return (
-      fetch('http://localhost:3001/api/v1/feeds')
+      fetch(`${process.env.REACT_APP_API_URL}/api/v1/feeds`)
         .then(response => response.json())
     )
   }

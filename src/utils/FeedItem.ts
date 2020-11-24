@@ -5,7 +5,7 @@ interface FeedItem {
 const FeedItem = {
 	getItems: () => {
 		return(
-			fetch('http://localhost:3001/api/v1/feeds')
+			fetch(`${process.env.REACT_APP_API_URL}/api/v1/feeds`)
 				.then(response => response.json())
 				.then(data => {
 					let items: Array<any> = data.feeds.channel.item.map((item: any) => {
