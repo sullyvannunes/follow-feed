@@ -4,7 +4,7 @@
 
     position: fixed;
 
-    background-color: #f4b771;
+    background-color: #fec24a;
 
     display: flex;
     flex-direction: column;
@@ -16,7 +16,7 @@
 
 .Sidebar .PlusIcon, .Sidebar .HouseIcon {
     padding-top: 15px;
-    color: #744058;
+    color: #fff;
     font-size: 45px;
 }
 
@@ -26,7 +26,7 @@
     bottom: 70px;
     left: 13px;
 
-    color: #744058;
+    color: #fff;
     font-size: 45px;
 }
 
@@ -37,6 +37,6 @@
     bottom: 15px;
     left: 13px;
 
-    color: #744058;
+    color: #fff;
     font-size: 45px;
 }
