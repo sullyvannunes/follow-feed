@@ -1,0 +1,33 @@
+.Welcome {
+  width: 720px;
+
+  padding-top: 50px;
+  margin: 0 auto;
+
+  text-align: center;
+
+  font-weight: 800;
+  font-size: 24px;
+}
+
+.Welcome img {
+  width: 400px;
+  height: 400px;
+
+  margin-top: 50px;
+}
+
+.Welcome footer {
+  margin-top: 100px;
+}
+
+.Welcome svg {
+  color: #744058;
+
+  position: absolute;
+  right: 20px;
+  top: 20px;
+
+  width: 40px;
+  height: 40px;
+}
